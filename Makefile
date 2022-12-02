@@ -13,7 +13,7 @@ mongo-dev:
 	docker run -p 27017:27017 mongo
 
 docker-build: 
-	docker build -t kubeshop/$(NAME) -f build/agent/Dockerfile .
+	docker build --network=host --build-arg HTTP_PROXY --build-arg HTTPS_PROXY -f build/agent/Dockerfile -t europe-docker.pkg.dev/asml-dpng-dev-01/asml-ngdp-test-registry/docker.io/kubeshop/testkube-executor-init:SNAPSHOT .
 
 install-swagger-codegen-mac: 
 	brew install swagger-codegen
